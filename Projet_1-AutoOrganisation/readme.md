@@ -5,6 +5,10 @@
   <img src="assets/slider_108.png" width="49%" alt="Énoncé de l'exercice — agents réactifs">
 </p>
 
+Cette exercice est disponible dans le document distant à cette adresse : 
+
+https://moodlesciences.univ-brest.fr/moodle/pluginfile.php/226988/mod_resource/content/0/Cours%20-%20SMA%20et%20R%C3%A9solution%20de%20probl%C3%A8mes.pdf
+
 ## Objectif
 
 L’objectif de cet exercice est de concevoir, en groupe, une solution permettant à plusieurs agents autonomes de résoudre collectivement un problème d’organisation dans un environnement 2D.
