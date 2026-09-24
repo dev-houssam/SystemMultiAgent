@@ -23,3 +23,8 @@ Serpent d'embouteillage emergent de system multi agent
 link : 
 
 https://www.giannidicaro.com/swarm-intelligence.html
+
+
+link : 
+
+https://www.swarmix.org/
