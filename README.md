@@ -18,3 +18,8 @@ Link (bouchons) (le trafic a une solution parfaite...) :
 
 
 Serpent d'embouteillage emergent de system multi agent
+
+
+link : 
+
+https://www.giannidicaro.com/swarm-intelligence.html
