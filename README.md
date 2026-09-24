@@ -15,3 +15,6 @@ https://netlogoweb.org/launch#https://netlogoweb.org/assets/modelslib/Sample%20M
 Link (bouchons) (le trafic a une solution parfaite...) : 
 
 [https://www.youtube.com/watch?v=iHzzSao6ypE](https://www.youtube.com/watch?v=iHzzSao6ypE&pp=ygUzbGEgc29sdXRpb24gcGFyZmFpdGUgYSB1bmUgc29sdXRpb24gKGVtYm91dGVpbGxhZ2Up)
+
+
+Serpent d'embouteillage emergent de system multi agent
