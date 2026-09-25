@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ef0nvwgluryb"]
+
+[ext_resource type="Script" uid="uid://btqltxf0s5nft" path="res://voiture.gd" id="1_qv08e"]
+[ext_resource type="PackedScene" uid="uid://bkfv0x86yktee" path="res://roue.tscn" id="2_hs4ok"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t850u"]
+size = Vector3(1, 1, 3.4776611)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t850u"]
+size = Vector3(1, 1, 3.4863281)
+
+[node name="Voiture" type="RigidBody3D" unique_id=1499799553]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 2
+linear_damp = 1.0
+angular_damp = 8.378
+script = ExtResource("1_qv08e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1218886786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00013327599, 0.009685993, -0.1266681)
+shape = SubResource("BoxShape3D_t850u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=610741221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006934434, -0.011298776, -0.109591484)
+mesh = SubResource("BoxMesh_t850u")
+
+[node name="Roue" parent="." unique_id=1767673649 instance=ExtResource("2_hs4ok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47973263, -0.4046222, 1.0031413)
+
+[node name="Roue2" parent="." unique_id=127531616 instance=ExtResource("2_hs4ok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43235874, -0.43597877, -1.4208691)
+
+[node name="Roue3" parent="." unique_id=1676950535 instance=ExtResource("2_hs4ok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48678094, -0.3987869, -1.2409707)
+
+[node name="Roue4" parent="." unique_id=983800120 instance=ExtResource("2_hs4ok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478003, -0.4096511, 1.1532428)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

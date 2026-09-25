@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b2slk17vui1u7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1naw3"]
+size = Vector3(3, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1naw3"]
+size = Vector3(3.3549805, 1.0743561, 29.822756)
+
+[node name="Trottoir" type="StaticBody3D" unique_id=727584669]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=414059238]
+transform = Transform3D(0.99989706, -0.0107898135, -0.009463387, 0.010798042, 0.99994135, 0.0008186996, 0.009453989, -0.0009207949, 0.9999549, 1.7425046, 1.0678296, -2.1189194)
+mesh = SubResource("BoxMesh_1naw3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1774814260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.814383, 1.1722507, -2.273305)
+shape = SubResource("BoxShape3D_1naw3")
