@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ef0nvwgluryb"]
+
+[ext_resource type="Script" uid="uid://btqltxf0s5nft" path="res://voiture.gd" id="1_qv08e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t850u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t850u"]
+
+[node name="Voiture" type="RigidBody3D" unique_id=1499799553]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 2
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_qv08e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1218886786]
+shape = SubResource("BoxShape3D_t850u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=610741221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006934434, -0.011298776, -0.009587422)
+mesh = SubResource("BoxMesh_t850u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

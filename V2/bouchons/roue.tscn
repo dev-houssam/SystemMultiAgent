@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bkfv0x86yktee"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qe3dr"]
+height = 0.19384766
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdt06"]
+albedo_color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qe3dr"]
+material = SubResource("StandardMaterial3D_tdt06")
+top_radius = 0.52490234
+bottom_radius = 0.52490234
+height = 0.21290234
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=244875298]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=10172981]
+transform = Transform3D(-0.005940466, -0.9998318, -0.017348595, 0.9992482, -0.005270536, -0.03841239, 0.038314495, -0.017563753, 0.9991117, 0.0230968, -0.06207055, 0)
+shape = SubResource("CylinderShape3D_qe3dr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1447734429]
+transform = Transform3D(0.046366945, -0.9989245, 0, 0.9989245, 0.046366945, 0, 0, 0, 1, 0.028080694, -0.12645032, -0.031510293)
+mesh = SubResource("CylinderMesh_qe3dr")
