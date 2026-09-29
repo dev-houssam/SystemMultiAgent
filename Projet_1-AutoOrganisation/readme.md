@@ -149,3 +149,104 @@ Chaque groupe devra être capable de présenter sa solution et d'expliquer :
 * les conditions permettant d'aboutir au résultat recherché.
 
 L'objectif final est de proposer une **modélisation complète d'un système multi-agents capable de s'organiser collectivement pour résoudre le problème donné**.
+
+---
+
+# Correction de l'exercice
+
+## 🧠 Agent cognitif
+
+**État :** Déjà fait
+
+
+
+---
+
+## ⚡ Agent réactif
+
+### Perception → Action
+
+| Perception | Action |
+|---|---|
+| 🚪 Porte détectée | → Déposer |
+| 🪵 Copeau proche | → S'éloigner |
+| 🟩 Place libre | → Chercher au hasard |
+| 🧱 Bordure détectée | → Tourner |
+
+> ⚠️ **Remarque :**  
+> Si l'agent ne s'éloigne pas après avoir déposé un copeau, il risque de revenir au même endroit et de le déposer à nouveau.
+
+---
+
+## 📋 Règles de comportement
+
+### 1. Gestion de la bordure
+
+```text
+SI bordure détectée
+ALORS
+    tourner de 90°
+````
+
+---
+
+### 2. Ramassage d'un copeau
+
+```text
+SI !porte ET copeau proche
+ALORS
+    ramasser le copeau
+    puis s'éloigner
+```
+
+---
+
+### 3. Dépôt d'un copeau
+
+```text
+SI porte ET copeau proche ET place libre
+ALORS
+    déposer le copeau
+    puis s'éloigner
+```
+
+---
+
+### 4. Recherche
+
+```text
+SINON
+    chercher au hasard
+```
+
+---
+
+## 🔄 Résumé du comportement
+
+```text
+                 ┌──────────────────┐
+                 │   Perception      │
+                 └────────┬─────────┘
+                          │
+             ┌────────────┼────────────┐
+             ▼            ▼            ▼
+          Bordure      Copeau       Autre
+             │          proche         │
+             ▼            │            ▼
+       Tourner 90°        │      Chercher au hasard
+                          │
+                    ┌─────┴─────┐
+                    ▼           ▼
+                 !porte       porte
+                    │           │
+                    ▼           ▼
+                Ramasser     Place libre ?
+                    │           │
+                    ▼          Oui
+               S'éloigner       │
+                                ▼
+                              Déposer
+                                │
+                                ▼
+                           S'éloigner
+```
