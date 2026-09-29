@@ -4,7 +4,7 @@
 
 #### 1. Modéliser avec une machine à états finis le comportement de l'agent
 
-<img src="schema_1.png" width="90%" alt="Mon schema">
+<img src="schema.png" width="90%" alt="Mon schema">
 
 Les différents états de l'agent sont :
 
