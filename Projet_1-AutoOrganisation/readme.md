@@ -151,14 +151,11 @@ Chaque groupe devra être capable de présenter sa solution et d'expliquer :
 L'objectif final est de proposer une **modélisation complète d'un système multi-agents capable de s'organiser collectivement pour résoudre le problème donné**.
 
 ---
-
 # Correction de l'exercice
 
 ## 🧠 Agent cognitif
 
 **État :** Déjà fait
-
-
 
 ---
 
@@ -166,14 +163,14 @@ L'objectif final est de proposer une **modélisation complète d'un système mul
 
 ### Perception → Action
 
-| Perception | Action |
-|---|---|
-| 🚪 Porte détectée | → Déposer |
-| 🪵 Copeau proche | → S'éloigner |
-| 🟩 Place libre | → Chercher au hasard |
-| 🧱 Bordure détectée | → Tourner |
+| Perception                     | Action               |
+| ------------------------------ | -------------------- |
+| 🎨 **(couleur) Porté détecté** | → Déposer            |
+| 🪵 **Copeau proche**           | → S'éloigner         |
+| 🟩 **Place libre**             | → Chercher au hasard |
+| 🧱 **Bordure détectée**        | → Tourner            |
 
-> ⚠️ **Remarque :**  
+> ⚠️ **Remarque :**
 > Si l'agent ne s'éloigne pas après avoir déposé un copeau, il risque de revenir au même endroit et de le déposer à nouveau.
 
 ---
@@ -186,14 +183,14 @@ L'objectif final est de proposer une **modélisation complète d'un système mul
 SI bordure détectée
 ALORS
     tourner de 90°
-````
+```
 
 ---
 
 ### 2. Ramassage d'un copeau
 
 ```text
-SI !porte ET copeau proche
+SI !porté ET copeau proche
 ALORS
     ramasser le copeau
     puis s'éloigner
@@ -204,7 +201,7 @@ ALORS
 ### 3. Dépôt d'un copeau
 
 ```text
-SI porte ET copeau proche ET place libre
+SI porté ET copeau proche ET place libre ET même couleur
 ALORS
     déposer le copeau
     puis s'éloigner
@@ -225,19 +222,20 @@ SINON
 
 ```text
                  ┌──────────────────┐
-                 │   Perception      │
+                 │    Perception    │
                  └────────┬─────────┘
                           │
              ┌────────────┼────────────┐
              ▼            ▼            ▼
-          Bordure      Copeau       Autre
-             │          proche         │
-             ▼            │            ▼
+          Bordure      Copeau        Autre
+          détectée      proche       situation
+             │            │             │
+             ▼            │             ▼
        Tourner 90°        │      Chercher au hasard
                           │
                     ┌─────┴─────┐
                     ▼           ▼
-                 !porte       porte
+                 !porté        porté
                     │           │
                     ▼           ▼
                 Ramasser     Place libre ?
