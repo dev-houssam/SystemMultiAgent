@@ -252,3 +252,6 @@ SINON
                                 ▼
                            S'éloigner
 ```
+<p align="center">
+  <img src="schema.png" width="90%" alt="exercice — agents reactif">
+</p>
