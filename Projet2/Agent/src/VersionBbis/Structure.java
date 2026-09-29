@@ -26,8 +26,9 @@ public class Structure {
     }
 
     public void print() {
-
-        System.out.println(this.file.toString());
+        System.out.println(
+        		this.file.toString()
+        );
     }
 
     public synchronized Integer prendre() {
@@ -46,7 +47,7 @@ public class Structure {
 		return null;
     }
 
-    public synchronized void  poser(int valeur) {
+    public void  poser(int valeur) {
 
     	this.valeurs_traitee += 1;
         try {

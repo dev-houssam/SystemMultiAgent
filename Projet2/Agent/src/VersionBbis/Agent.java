@@ -12,7 +12,11 @@ public class Agent extends Thread {
 	private boolean state_process = false;
 	private boolean state_put = false;
 	private Structure structure = null;
-	private boolean active = false;
+	private boolean is_agent_active = true;
+	
+	final private int NB_STATE = 4;
+	private int current_state = 1;
+	private int next_state = current_state + 1;
 	
 	public Agent(int id, Structure structure) {
 		this.id  = id;
@@ -20,50 +24,58 @@ public class Agent extends Thread {
 	}
 	
 	public void run() {
-		while(!Thread.currentThread().isInterrupted()) {
-			
-			value = this.structure.prendre();
-			
+		while(!Thread.currentThread().isInterrupted() && this.is_agent_active) {
 			runState();
 		}
 		//System.out.println(this.id + " have Finished");
 	}
 	
-	private void runState() {
-		if(this.state_take) {
-			Object MessageValeur = this.structure.prendre();
-			if(MessageValeur != null) {
-				this.state_process = true;
-			}else {
-				active = false;
-			}
-			
-		}else if(this.state_process) {
-			
-			
-			
-			this.value *= 2;
-			this.state_process = false;
-			if(this.value >= 100) {
-				Thread.currentThread().interrupt();
-			}
-			
-			this.state_take = true;
-		}else if(this.state_put) {
-			
-			try {
-				this.structure.poser(value);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			try {
-				Thread.currentThread().sleep(500);
-			} catch (InterruptedException e) {}
-			
-			this.state_put = false;
-			this.state_process = true;
+	private void action_prendre() {
+		Object MessageValeur = this.structure.prendre();
+		
+		if(MessageValeur != null) 
+		{
+			this.value = (Integer) MessageValeur;
+		}
+		else 
+		{
+			this.is_agent_active = false;
+		}
+		
+	}
+	
+	private void action_traitement() {
+		this.value = this.value * 2;
+		
+		if(this.value >= 100) {
+			Thread.currentThread().interrupt();
 		}
 	}
+	
+	private void action_deposer() {
+		this.structure.poser(value);
+		
+		try {
+			Thread.currentThread().sleep(500);
+		} catch (InterruptedException e) {}
+	}
+	
+	private void runState() {
+		this.next_state = (this.current_state + 1) % this.NB_STATE;
+		switch(this.current_state) {
+			case 1:
+				this.action_prendre();
+				this.current_state = this.next_state;
+				break;
+			case 2:
+				this.action_traitement();
+				this.current_state = this.next_state;
+				break;
+			case 3:
+				this.action_deposer();
+				this.current_state = this.next_state;
+				break;
+		}
+	}
+	
 }
